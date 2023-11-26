@@ -1,0 +1,32 @@
+:root {
+  width: 200px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color:rgb(22, 76, 135);
+  font-size: 1.1em;
+}
+
+a:hover {
+  color: rgb(105, 178, 255);
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0 auto;
+}
+
+#links {
+  margin-top: 10px;
+  font-size: 1.2em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#links > * {
+  margin-top: 10px;
+}
