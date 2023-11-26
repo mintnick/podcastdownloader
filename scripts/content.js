@@ -1,29 +1,23 @@
-let url = "";
-let filename = "";
-
 window.addEventListener("load", renderBtn, false);
 
-function renderBtn(event) {
-  const main = document.getElementsByTagName('main')[0];
+function renderBtn(e) {
+  const header = document.getElementsByTagName('header')[0];
 
+  // create button
   const btn = document.createElement('button');
-  btn.textContent = "Download";
+  btn.id = "pod-dl";
+  btn.textContent = "下载音频";
   
-  if (main) {
-    main.prepend(btn);
-  }
+  if (header) header.prepend(btn);
   
   // get url
   const audio = document.getElementsByTagName('audio')[0];
-  if (audio) {
-    url = audio.getAttribute('src')
-  }
+  const url = audio.getAttribute('src')
 
   // get names
-  const header = document.getElementsByTagName('head')[0];
-  let name = header.querySelector('title').textContent;
+  let name = document.getElementsByTagName('head')[0].querySelector('title').textContent;
   name = name.split('|')[0]
-  filename = name.split(' - ')[1].replace(/\s/g, '') + ' - ' + name.split(' - ')[0]
+  const filename = name.split(' - ')[1].replace(/\s/g, '') + ' - ' + name.split(' - ')[0]
 
   // send msg
   btn.addEventListener("click", (async() => {

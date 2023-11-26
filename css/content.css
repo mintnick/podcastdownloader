@@ -1,0 +1,116 @@
+/* button#pod-dl {
+  height: 40px;
+  width: 30%;
+  background: rgb(25, 118, 210);
+  color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border-style: none;
+  font-size: 1.4em;
+  font-weight: bold;
+  cursor: pointer;
+} */
+
+button#pod-dl {
+  --background: #fff;
+  --border-color: linear-gradient(to bottom right, #5C6BC0, #AB47BC);
+  --border-width: .125em;
+  --edge-size: .5em;
+
+  margin-bottom: 10px;
+  height: 40px;
+  width: 30%;
+  font-size: 1.3em;
+  font-weight: bold;
+  cursor: pointer;
+
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  padding: 0.5em 1.5em;
+  border: 0;
+  background-color: var(--background);
+  clip-path: polygon(
+    /* top-left 1 */
+    0% var(--edge-size),
+    /* top-left 2 */
+    var(--edge-size) 0%,
+    /* top-right */
+    100% 0,
+    /* bottom-right 1 */
+    100% calc(100% - var(--edge-size)),
+    /* bottom-right 2 */
+    calc(100% - var(--edge-size)) 100%,
+    /* bottom-left */
+    0 100%
+  );
+
+  transition: color 250ms;
+}
+
+button#pod-dl::before,
+button#pod-dl::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+button#pod-dl::before {
+  background: var(--border-color);
+  z-index: -2;
+}
+
+button#pod-dl::after {
+  background: var(--background);
+  z-index: -1;
+
+  clip-path: polygon(
+    /* top-left 1 */
+    var(--border-width)
+    calc(var(--edge-size) + var(--border-width) * .5),
+    /* top-left 2 */
+    calc(var(--edge-size) + var(--border-width) * .5)
+    var(--border-width),
+    /* top-right */
+    calc(100% - var(--border-width))
+    var(--border-width),
+    /* bottom-right 1 */
+    calc(100% - var(--border-width))
+    calc(100% - calc(var(--edge-size) + var(--border-width) * .5)),
+    /* bottom-right 2 */
+    calc(100% - calc(var(--edge-size) + var(--border-width) * .5))
+    calc(100% - var(--border-width)),
+    /* bottom-left */
+    var(--border-width)
+    calc(100% - var(--border-width))
+  );
+
+  transition: clip-path 500ms;
+}
+
+button#pod-dl:where(:hover, :focus) {
+  color: white;
+}
+
+button#pod-dl:where(:hover, :focus)::after {
+  clip-path: polygon(
+    /* top-left 1 */
+    calc(100% - var(--border-width))
+    calc(100% - calc(var(--edge-size) + var(--border-width) * .5)),
+    /* top-left 2 */
+    calc(100% - var(--border-width))
+    var(--border-width),
+    /* top-right */
+    calc(100% - var(--border-width))
+    var(--border-width),
+    /* bottom-right 1 */
+    calc(100% - var(--border-width))
+    calc(100% - calc(var(--edge-size) + var(--border-width) * .5)),
+    /* bottom-right 2 */
+    calc(100% - calc(var(--edge-size) + var(--border-width) * .5))
+    calc(100% - var(--border-width)),
+    /* bottom-left */
+    calc(100% - calc(var(--edge-size) + var(--border-width) * .5))
+    calc(100% - var(--border-width))
+  );
+}

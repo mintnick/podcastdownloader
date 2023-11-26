@@ -14,10 +14,11 @@
   },
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
       "matches": [
         "https://www.xiaoyuzhoufm.com/episode/*"
-      ]
+      ],
+      "js": ["scripts/content.js"],
+      "css": ["css/content.css"]
     }
   ],
   "background": {
