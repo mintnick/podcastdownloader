@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "小宇宙下载助手",
   "description": "在网页端下载小宇宙节目音频文件",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "action": {
     "default_popup": "popup/popup.html"
   },
@@ -18,7 +18,8 @@
         "https://www.xiaoyuzhoufm.com/episode/*"
       ],
       "js": ["scripts/content.js"],
-      "css": ["css/content.css"]
+      "css": ["css/content.css"],
+      "run_at": "document_idle"
     }
   ],
   "background": {
