@@ -1,6 +1,5 @@
 .DS_Store
 podcastdownloader.pem
-images/
 *.crx
 *-test.zip
 *-store-upload.zip
